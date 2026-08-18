@@ -49,7 +49,7 @@ export default function LandingPage() {
               
               <div className="flex flex-col sm:flex-row gap-5">
                 <button 
-                  onClick={() => window.location.href = 'https://api.expo.dev/v2/artifacts/eas/e9637ebc-c826-425d-9ddc-4991b4fa01df'}
+                  onClick={() => window.location.href = 'https://expo.dev/artifacts/eas/0D_TKzsQsS2d5aQ2kpIMLlOyjwFs_ai4ysPxt9qLVAk.apk'}
                   className="bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-pink-500/30 flex justify-center items-center gap-3 transition-all hover:scale-105 active:scale-95"
                 >
                   Télécharger l'App <ArrowRight className="w-5 h-5" />
