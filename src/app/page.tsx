@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Star, Users, Wrench, ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { ShieldCheck, Star, Users, Wrench, ArrowRight, CheckCircle2, Sparkles, Clock3, MapPin, PhoneCall, BadgeCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function LandingPage() {
@@ -48,7 +48,10 @@ export default function LandingPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-5">
-                <button className="bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-pink-500/30 flex justify-center items-center gap-3 transition-all hover:scale-105 active:scale-95">
+                <button 
+                  onClick={() => window.open('https://expo.dev/artifacts/eas/eBpACjpudQ0IxadxzBZYY7A3My2tAJ9gYV9GmX5PLpQ.aab', '_blank')}
+                  className="bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-pink-500/30 flex justify-center items-center gap-3 transition-all hover:scale-105 active:scale-95"
+                >
                   Télécharger l'App <ArrowRight className="w-5 h-5" />
                 </button>
                 <button className="bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-100 px-10 py-4 rounded-2xl font-bold text-lg transition-all flex justify-center items-center shadow-sm">
@@ -106,32 +109,43 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* --- SPOTLIGHT BANNER (PANNEAU DE PUBLICITÉ) --- */}
+        {/* --- FEATURE HIGHLIGHTS --- */}
         <section className="max-w-7xl mx-auto px-6 mt-32">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative h-[450px] rounded-[3rem] overflow-hidden shadow-2xl group cursor-pointer"
+                className="rounded-[2rem] border border-gray-100 bg-white p-8 shadow-sm lg:p-10"
             >
-                <img 
-                    src="/banner.png" 
-                    alt="AlloService Banner" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent flex items-center px-12 lg:px-20">
-                    <div className="max-w-xl">
-                        <span className="bg-pink-600 text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-[0.2em] mb-6 inline-block shadow-lg">En ce moment</span>
-                        <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight mb-6">
-                            L'excellence à votre <span className="text-pink-400">porte</span>.
+                <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                    <div>
+                        <span className="inline-flex items-center gap-2 rounded-full bg-pink-50 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-pink-600">
+                            <Sparkles className="h-3.5 w-3.5" /> En ce moment
+                        </span>
+                        <h2 className="mt-6 text-3xl font-black text-gray-900 lg:text-5xl">
+                            Une assistance de <span className="text-pink-600">proximité</span> maîtrisée.
                         </h2>
-                        <p className="text-white/80 text-lg lg:text-xl font-medium mb-10 leading-relaxed italic border-l-4 border-pink-500 pl-6">
-                            "Une plomberie impeccable, une électricité sûre. Nos partenaires sont les meilleurs de Cotonou."
-                        </p>
-                        <button className="bg-white text-black px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-pink-50 transition-all shadow-xl shadow-white/5">
-                            Voir les experts
-                        </button>
                     </div>
+                    <button className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gray-900 px-6 py-3 text-sm font-black uppercase tracking-widest text-white transition hover:bg-black">
+                        Voir les experts <ArrowRight className="h-4 w-4" />
+                    </button>
+                </div>
+
+                <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                    {[
+                        { icon: Clock3, title: 'Réponse rapide', text: 'Des artisans disponibles en quelques minutes.' },
+                        { icon: BadgeCheck, title: 'Professionnels vérifiés', text: 'Contrôles, ID, qualifications et avis réels.' },
+                        { icon: MapPin, title: 'À proximité', text: 'Trouver les bons profils autour de chez vous.' },
+                        { icon: PhoneCall, title: 'Suivi simple', text: 'Un accompagnement clair de la demande au service.' }
+                    ].map(({ icon: Icon, title, text }) => (
+                        <div key={title} className="rounded-[1.5rem] border border-gray-100 bg-gray-50 p-5 transition hover:-translate-y-1 hover:shadow-md">
+                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
+                                <Icon className="h-5 w-5 text-pink-600" />
+                            </div>
+                            <h3 className="mb-2 text-lg font-black text-gray-900">{title}</h3>
+                            <p className="text-sm leading-relaxed text-gray-600">{text}</p>
+                        </div>
+                    ))}
                 </div>
             </motion.div>
         </section>
@@ -150,51 +164,42 @@ export default function LandingPage() {
             {/* CARD 1 */}
             <motion.div 
                 whileHover={{ y: -10 }}
-                className="bg-white p-2 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col hover:shadow-2xl transition-all h-full"
+                className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col hover:shadow-2xl transition-all h-full"
             >
-               <div className="h-56 rounded-[2rem] overflow-hidden mb-6">
-                  <img src="/mise_en_relation_flash.png" alt="Mise en relation" className="w-full h-full object-cover" />
+               <div className="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                  <Users className="w-8 h-8 text-pink-600" />
                </div>
-               <div className="px-6 pb-8">
-                  <div className="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                    <Users className="w-7 h-7 text-pink-600" />
-                  </div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-4">Mise en relation flash</h3>
-                  <p className="text-gray-500 font-medium leading-relaxed">Trouvez un expert disponible en quelques minutes. Postez votre besoin, l'aide arrive.</p>
+               <div className="pb-2">
+                  <h3 className="text-2xl font-black text-gray-900 mb-4">Mise en relation rapide</h3>
+                  <p className="text-gray-500 font-medium leading-relaxed">Trouvez un expert disponible en quelques minutes. Postez votre besoin, l'aide arrive sans détour.</p>
                </div>
             </motion.div>
             
             {/* CARD 2 */}
             <motion.div 
                 whileHover={{ y: -10 }}
-                className="bg-white p-2 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col hover:shadow-2xl transition-all h-full"
+                className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col hover:shadow-2xl transition-all h-full"
             >
-               <div className="h-56 rounded-[2rem] overflow-hidden mb-6">
-                  <img src="/securite_absolue.png" alt="Sécurité" className="w-full h-full object-cover" />
+               <div className="w-16 h-16 bg-rose-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                  <ShieldCheck className="w-8 h-8 text-rose-600" />
                </div>
-               <div className="px-6 pb-8">
-                  <div className="w-14 h-14 bg-rose-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                    <ShieldCheck className="w-7 h-7 text-rose-600" />
-                  </div>
-                  <h3 className="text-2xl font-black text-gray-900 mb-4">Sécurité absolue</h3>
-                  <p className="text-gray-500 font-medium leading-relaxed">ID, IFU, Diplômes. Nous vérifions tout pour que vous puissiez accueillir les pros en toute confiance.</p>
+               <div className="pb-2">
+                  <h3 className="text-2xl font-black text-gray-900 mb-4">Vérification rigoureuse</h3>
+                  <p className="text-gray-500 font-medium leading-relaxed">ID, IFU, diplômes et statut vérifié. Vous recevez une confiance réelle avant chaque prestation.</p>
                </div>
             </motion.div>
             
             {/* CARD 3 */}
             <motion.div 
                 whileHover={{ y: -10 }}
-                className="bg-white p-2 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col hover:shadow-2xl transition-all h-full"
+                className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col hover:shadow-2xl transition-all h-full"
             >
-               <div className="h-56 rounded-[2rem] overflow-hidden mb-6">
-                  <img src="/elite_transparence.png" alt="Transparence" className="w-full h-full object-cover" />
+               <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                  <Star className="w-8 h-8 text-amber-600" />
                </div>
-               <div className="px-6 pb-8">
-                  <div className="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                    <Star className="w-7 h-7 text-amber-600" />
-                  </div>
+               <div className="pb-2">
                   <h3 className="text-2xl font-black text-gray-900 mb-4">Élite & Transparence</h3>
-                  <p className="text-gray-500 font-medium leading-relaxed">Choisissez les meilleurs grâce aux avis réels et une tarification claire et sans surprise.</p>
+                  <p className="text-gray-500 font-medium leading-relaxed">Des artisans qualifiés, des avis honnêtes et une tarification claire pour un choix serein.</p>
                </div>
             </motion.div>
           </div>
