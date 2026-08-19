@@ -2,14 +2,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* ─── Palette : Blanc / Noir / Rose ─── */
-  --color-background: #ffffff;
-  --color-foreground: #111111;
+  /* ─── Palette partagée avec l'application mobile ─── */
+  --color-background: #f8f9fd;
+  --color-foreground: #0f172a;
   --color-card: #ffffff;
-  --color-card-border: rgba(0, 0, 0, 0.06);
-  --color-primary: #ec4899;
-  --color-secondary: #f472b6;
-  --color-muted: #6b7280;
+  --color-card-border: #e9eaf2;
+  --color-primary: #5836e8;
+  --color-secondary: #7b61ff;
+  --color-muted: #6f7890;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -49,31 +49,50 @@ body {
 
 /* ─── Gradient bouton rose ─── */
 .pink-gradient {
-  background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+  background: linear-gradient(135deg, #5836e8 0%, #7b61ff 100%);
 }
 
 /* Legacy classe conservée pour compatibilité */
 .pink-purple-gradient {
-  background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+  background: linear-gradient(135deg, #5836e8 0%, #7b61ff 100%);
 }
 
 /* ─── Glow rose ─── */
 .pink-glow {
-  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.20);
+  box-shadow: 0 4px 20px rgba(88, 54, 232, 0.20);
 }
 
 /* legacy */
 .purple-glow {
-  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.20);
+  box-shadow: 0 4px 20px rgba(88, 54, 232, 0.20);
 }
 
 /* ─── Ancien gradient remappé ─── */
 .white-blue-gradient {
-  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  background: linear-gradient(135deg, #f2f1ff 0%, #ebe8ff 100%);
 }
 .blue-glow {
-  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.12);
+  box-shadow: 0 4px 20px rgba(88, 54, 232, 0.12);
 }
+
+/* Harmonise les anciennes classes rose avec la palette mobile. */
+.bg-pink-50, .bg-rose-50 { background-color: #f2f1ff !important; }
+.bg-pink-100, .bg-rose-100 { background-color: #e9e6ff !important; }
+.bg-pink-500, .bg-pink-600, .bg-rose-500, .bg-rose-600 { background-color: #5836e8 !important; }
+.text-pink-400, .text-pink-500, .text-pink-600, .text-rose-400, .text-rose-500, .text-rose-600 { color: #5836e8 !important; }
+.border-pink-100, .border-pink-200, .border-rose-100 { border-color: #e9e6ff !important; }
+.hover\:bg-pink-50:hover, .hover\:bg-rose-50:hover { background-color: #f2f1ff !important; }
+.hover\:bg-pink-600:hover, .hover\:bg-rose-600:hover { background-color: #4728cf !important; }
+.hover\:text-pink-600:hover, .hover\:text-rose-600:hover { color: #4728cf !important; }
+.focus\:border-pink-500:focus, .focus\:border-rose-500:focus { border-color: #5836e8 !important; }
+.from-pink-500 { --tw-gradient-from: #5836e8 var(--tw-gradient-from-position) !important; }
+.to-rose-400 { --tw-gradient-to: #7b61ff var(--tw-gradient-to-position) !important; }
+.bg-gray-50 { background-color: #f8f9fd !important; }
+.text-gray-900 { color: #0f172a !important; }
+.text-gray-600, .text-gray-500, .text-gray-400 { color: #6f7890 !important; }
+.border-gray-100, .border-gray-200 { border-color: #e9eaf2 !important; }
+.hover\:bg-gray-50:hover { background-color: #f8f9fd !important; }
+.focus\:ring-pink-500\/20:focus { --tw-ring-color: rgba(88, 54, 232, 0.2) !important; }
 
 /* ─── Animations ─── */
 @keyframes float {
@@ -89,7 +108,7 @@ body {
   100% { background-position: 200% 0; }
 }
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(236,72,153,0.06), transparent);
+  background: linear-gradient(90deg, transparent, rgba(88,54,232,0.06), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
 }

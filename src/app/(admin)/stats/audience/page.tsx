@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import { API_URL } from '@/utils/constants';
 
-const COLORS = ["#3b82f6", "#ec4899", "#10b981", "#f59e0b", "#8b5cf6", "#6366f1"];
+const COLORS = ["#3b82f6", "#5836e8", "#10b981", "#f59e0b", "#7b61ff", "#6366f1"];
 
 export default function AudiencePage() {
   const [data, setData] = useState<any>(null);

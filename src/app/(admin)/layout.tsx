@@ -127,7 +127,7 @@ export default function RootLayout({
                   Flux
                 </span>
               </div>
-              <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(236,72,153,0.5)]"></span>
+                <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(88,54,232,0.5)]"></span>
             </Link>
 
             <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 px-3 mb-2 mt-6">
@@ -323,7 +323,7 @@ export default function RootLayout({
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(236,72,153,0.5)] animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(88,54,232,0.5)] animate-pulse"></span>
               </div>
             </Link>
 

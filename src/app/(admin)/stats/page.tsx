@@ -178,8 +178,8 @@ export default function StatsPage() {
                     <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="gradArtisans" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#ec4899" stopOpacity={0.2} />
-                    <stop offset="95%" stopColor="#ec4899" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#5836e8" stopOpacity={0.2} />
+                    <stop offset="95%" stopColor="#5836e8" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
@@ -188,7 +188,7 @@ export default function StatsPage() {
                 <Tooltip content={<CustomTooltip />} />
                 <Legend wrapperStyle={{ fontSize: 12, fontWeight: 700 }} />
                 <Area type="monotone" dataKey="Clients" stroke="#3b82f6" strokeWidth={2.5} fill="url(#gradClients)" dot={{ r: 4, fill: "#3b82f6" }} activeDot={{ r: 6 }} />
-                <Area type="monotone" dataKey="Artisans" stroke="#ec4899" strokeWidth={2.5} fill="url(#gradArtisans)" dot={{ r: 4, fill: "#ec4899" }} activeDot={{ r: 6 }} />
+                <Area type="monotone" dataKey="Artisans" stroke="#5836e8" strokeWidth={2.5} fill="url(#gradArtisans)" dot={{ r: 4, fill: "#5836e8" }} activeDot={{ r: 6 }} />
               </AreaChart>
             </ResponsiveContainer>
           )}

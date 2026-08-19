@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import { API_URL } from '@/utils/constants';
 
-const COLORS = ["#3b82f6", "#ec4899", "#10b981", "#f59e0b"];
+const COLORS = ["#3b82f6", "#5836e8", "#10b981", "#f59e0b"];
 
 export default function TrafficPage() {
   const [data, setData] = useState<any>(null);
@@ -100,7 +100,7 @@ export default function TrafficPage() {
                     <span className="text-xs font-bold text-gray-600">Visiteurs</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-pink-500 shadow-[0_0_8px_rgba(236,72,153,0.5)]"></div>
+                    <div className="w-3 h-3 rounded-full bg-pink-500 shadow-[0_0_8px_rgba(88,54,232,0.5)]"></div>
                     <span className="text-xs font-bold text-gray-600">Sessions</span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -119,8 +119,8 @@ export default function TrafficPage() {
                             <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
                         </linearGradient>
                         <linearGradient id="colorSes" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#ec4899" stopOpacity={0.3}/>
-                            <stop offset="95%" stopColor="#ec4899" stopOpacity={0}/>
+                            <stop offset="5%" stopColor="#5836e8" stopOpacity={0.3}/>
+                            <stop offset="95%" stopColor="#5836e8" stopOpacity={0}/>
                         </linearGradient>
                         <linearGradient id="colorVues" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor="#10b981" stopOpacity={0.1}/>
@@ -146,7 +146,7 @@ export default function TrafficPage() {
                         itemStyle={{ fontSize: '12px', fontWeight: 'bold' }}
                     />
                     <Area type="monotone" dataKey="Visiteurs" stroke="#3b82f6" strokeWidth={4} fillOpacity={1} fill="url(#colorVis)" />
-                    <Area type="monotone" dataKey="Sessions" stroke="#ec4899" strokeWidth={4} fillOpacity={1} fill="url(#colorSes)" />
+                    <Area type="monotone" dataKey="Sessions" stroke="#5836e8" strokeWidth={4} fillOpacity={1} fill="url(#colorSes)" />
                     <Area type="monotone" dataKey="Vues" stroke="#10b981" strokeWidth={2} strokeDasharray="5 5" fillOpacity={1} fill="url(#colorVues)" />
                 </AreaChart>
             </ResponsiveContainer>
@@ -182,7 +182,7 @@ export default function TrafficPage() {
                 <div className="h-64">
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={chartData.slice(-6)}>
-                            <Bar dataKey="Sessions" fill="#ec4899" radius={[10, 10, 0, 0]} barSize={20} />
+                            <Bar dataKey="Sessions" fill="#5836e8" radius={[10, 10, 0, 0]} barSize={20} />
                             <Bar dataKey="Visiteurs" fill="#3b82f6" radius={[10, 10, 0, 0]} barSize={20} />
                             <Tooltip cursor={{fill: '#f9fafb'}} contentStyle={{borderRadius: '12px'}} />
                         </BarChart>
